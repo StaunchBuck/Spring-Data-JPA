@@ -1,19 +1,11 @@
 package com.tech.jpa.relationship.JPARelationship.entity;
 
-import java.time.LocalDateTime;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
-
-import org.hibernate.annotations.CreationTimestamp;
-
-import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 public class Student {
@@ -25,7 +17,7 @@ public class Student {
 	@Column(nullable=false)
 	private String name;
 	
-	@OneToOne
+	@OneToOne(fetch=FetchType.LAZY) //by default eager
 	private Passport passport;
 	
 	public Student() {}
@@ -56,7 +48,7 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", name=" + name + "]";
+		return "Student [id=" + id + ", name=" + name + ", passport=" + passport+"]";
 	}
 	
 }

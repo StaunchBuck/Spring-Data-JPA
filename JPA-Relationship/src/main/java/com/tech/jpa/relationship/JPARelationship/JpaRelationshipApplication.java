@@ -7,23 +7,25 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.tech.jpa.relationship.JPARelationship.jdbc.CourseRepository;
+import com.tech.jpa.relationship.JPARelationship.jdbc.StudentRepository;
 
 
 @SpringBootApplication
+//@EnableTransactionManagement auto enables for spring boot
 public class JpaRelationshipApplication implements CommandLineRunner{
 
-private Logger log = LoggerFactory.getLogger(JpaRelationshipApplication.class);
+	private static final Logger log = LoggerFactory.getLogger(JpaRelationshipApplication.class);
 	
 	public static void main(String[] args) {
 		SpringApplication.run(JpaRelationshipApplication.class, args);
 	}
 
-	@Autowired CourseRepository repository;
-	
+	@Autowired StudentRepository studentRepository;
+
 	@Override
 	public void run(String... args) throws Exception {
-		
+		studentRepository.createStudentWithPassport();
+		studentRepository.retrieveStudentWithPassport();
 	}
 
 }
