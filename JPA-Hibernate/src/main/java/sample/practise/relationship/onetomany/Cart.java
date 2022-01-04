@@ -13,7 +13,9 @@ import javax.persistence.Table;
 public class Cart {
 	
 	@OneToMany(mappedBy="cart")  //inverse side
-	@JoinColumn(name="cart_id")  //owning side
+	//@JoinColumn(name="cart_id")  //owning side
 	private List<Item> items;
 
 }
+
+

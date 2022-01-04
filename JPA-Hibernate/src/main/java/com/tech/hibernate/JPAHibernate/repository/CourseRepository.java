@@ -129,6 +129,6 @@ public class CourseRepository {
 		c1.setName("Learning JPA - Updated");
 		c2.setName("Learning JDBCTemplate - Updated");
 		
-		em.refresh(c1);  // refreshes the content of c1 with that of database.Therefore line 108 changes would be lost.
+		em.refresh(c1);  // refreshes the content of c1 with that of database.Therefore line 129 changes would be lost.
 	}
 }
